@@ -1,5 +1,3 @@
-
-
 const drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 const container = document.querySelector(".results");
 const errorResult = document.querySelector(".errorResult");
@@ -13,14 +11,13 @@ async function fetchDrink(){
     let params = new URLSearchParams(document.location.search);
     const id = params.get(`id`);
   
-    console.log(id)
+  
     
     const response = await fetch(`${drinkUrl}${id}`);
   
     const json = await response.json();
   
-    console.log(json);
-    
+    console.log(json)
     container.innerHTML = `<h1>${json.drinks[0].strDrink}</h1>
                            <b>Recommended glass:</b>
                            <p>${json.drinks[0].strGlass}</p>  
@@ -33,8 +30,7 @@ async function fetchDrink(){
   
   }
   catch(error) {
-    console.log("error occurred", error);
-    errorResult.innerHTML = "An error has occurred! Sorry for the inconvenience.";
+    errorResult.innerHTML = `An error has occurred, sorry for the inconvenience ${error}`
   }
   finally{
     spinnerContainer.innerHTML = "";

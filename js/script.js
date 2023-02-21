@@ -8,7 +8,7 @@ const spinnerContainer = document.querySelector(".spinner");
 
 async function makeApiCall() {
   try{
-    //add spinner 
+     
     spinnerContainer.innerHTML = "Loading...";
   
     const response = await fetch(url);
@@ -17,24 +17,43 @@ async function makeApiCall() {
 
     const  drinksList = results.drinks;
     
-    console.log(drinksList.strDrink);
 
-  for (let i = 0; i < drinksList.length; i++){
-      resultsContainer.innerHTML += `<div class="card">
-                                     <a class="drinkName" href="/details.html?id=${drinksList[i].idDrink}">${drinksList[i].strDrink}</a>
-                                     <p>Category: ${drinksList[i].strCategory}</p>
-                                     <p>${drinksList[i].strAlcoholic}</p>
-                                     <img class="cardImage" src="${drinksList[i].strDrinkThumb}" alt="${drinksList[i].strDrink}" />
-                                     </div>`
-      }
+  drinksList.forEach((drink) => {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("card");
+
+    const newLink = document.createElement("a");
+    newLink.classList.add("drinkName");
+    newLink.href = "/details.html?id=${drink.idDrink}";
+    newLink.textContent = drink.strDrink;
+
+    const newP = document.createElement("p");
+    newP.textContent = `Category: ${drink.strCategory}`;
+
+    const newP2 = document.createElement("p");
+    newP2.textContent = drink.strAlcoholic;
+
+    const newImg = document.createElement("img");
+    newImg.classList.add("cardImage");
+    newImg.src = drink.strDrinkThumb;
+    newImg.alt = drink.strDrink;
+
+
+    newDiv.appendChild(newLink);
+    newDiv.appendChild(newP);
+    newDiv.appendChild(newP2);
+    newDiv.appendChild(newImg);
+
+    resultsContainer.appendChild(newDiv);
+  });
+
   }catch (error){
-    console.log("error occurred", error);
     errorResult.innerHTML = "An error has occurred! Sorry for the inconvenience.";
   }   
   finally {
-    //remove spinner
+  
     spinnerContainer.innerHTML = "";
   }
 }
 
-  makeApiCall();
+makeApiCall();

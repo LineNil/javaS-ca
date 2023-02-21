@@ -27,7 +27,7 @@ function validateForm(event) {
   //subject
 
   if (subject.value.trim().length > 10) {
-    subject.style.display = "none";
+    subjectError.style.display = "none";
   }
   else {
     subjectError.style.display = "block";
@@ -36,7 +36,7 @@ function validateForm(event) {
   //address
 
   if (address.value.trim().length > 25) {
-    address.style.display = "none";
+    addressError.style.display = "none";
   }
   else {
     addressError.style.display = "block";
@@ -50,7 +50,6 @@ function validateForm(event) {
     emailError.style.display = "block";
 }
 
-  console.log("hei");
 }
 
 form.addEventListener("submit", validateForm);
