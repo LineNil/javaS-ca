@@ -1,0 +1,28 @@
+a{
+  text-decoration: none;
+}
+
+.active{
+  text-decoration: underline;
+}
+
+nav li{
+  display: inline-block;
+}
+
+nav ul{
+  padding: 0px;
+}
+
+nav {
+  position: relative;
+  background: rgba(237, 100, 0, 0.16);
+  display: flex;
+}
+
+nav a{
+  display: block;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+
+}
