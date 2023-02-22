@@ -19,36 +19,56 @@ async function fetchDrink(){
   
     console.log(json)
 
-    json.forEach((details) => {
+    const drink = json.drinks[0];
 
-      const newDiv = document.createElement("div");
+    const newDiv = document.createElement("div");
 
-      const newH1 = document.createElement("h1");
-      newH1.textContent = `${details.strDrink}`;
+    const newH1 = document.createElement("h1");
+    newH1.textContent = `${drink.strDrink}`;
+
+      const newB = document.createElement("b");
+      newB.textContent = `Recommended glass:`;
 
       const newP = document.createElement("p");
-      newP.textContent = `Recommended glass:`;
+      newP.textContent = `${drink.strGlass}`;
+
+      const newB2 = document.createElement("b");
+      newB2.textContent = `Ingredients:`;
+
+      const newP2 = document.createElement("p");
+      newP2.textContent = `Subscribe for ingredients`;
+
+      const newB3 = document.createElement("b");
+      newB3.textContent = `Instructions:`;
+
+      const newP3 = document.createElement("p");
+      newP3.textContent = `${drink.strInstructions}`;
+
+      const newB4 = document.createElement("b");
+      newB4.textContent = `Instructions (Italian):`;
+
+      const newP4 = document.createElement("p");
+      newP4.textContent = `${drink.strInstructionsIT}`;
+
+
+
+
 
 
       newDiv.appendChild(newH1);
-      newDiv.appendChild(newP);
+      newDiv.appendChild(newB);
+      newDiv.appendChild(newP)
+      newDiv.appendChild(newB2);
+      newDiv.appendChild(newP2);      
+      newDiv.appendChild(newB3);      
+      newDiv.appendChild(newP3);
+      newDiv.appendChild(newB4);
+      newDiv.appendChild(newP4);
 
       container.appendChild(newDiv);
-
-
-
-    });
-    //container.innerHTML = `<h1>${json.drinks[0].strDrink}</h1>
-    //                       <b>Recommended glass:</b>
-    //                       <p>${json.drinks[0].strGlass}</p>  
-    //                       <b>Ingredients:</b>
-    //                       <p>Subscribe for ingredients</p>
-    //                       <b>Instructions:</b>
-    //                       <p>${json.drinks[0].strInstructions}</p>
-    //                       <b>Instructions (Italian):</b>
-    //                       <p>${json.drinks[0].strInstructionsIT}</p>`;
+    }
   
-  }
+  
   catch(error) {
     errorResult.innerHTML = `An error has occurred, sorry for the inconvenience ${error}`
   }
