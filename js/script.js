@@ -24,7 +24,7 @@ async function makeApiCall() {
 
     const newLink = document.createElement("a");
     newLink.classList.add("drinkName");
-    newLink.href = "/details.html?id=${drink.idDrink}";
+    newLink.href = `/details.html?id=${drink.idDrink}`;
     newLink.textContent = drink.strDrink;
 
     const newP = document.createElement("p");
