@@ -17,7 +17,6 @@ async function fetchDrink(){
   
     const json = await response.json();
   
-    console.log(json)
 
     const drink = json.drinks[0];
 
