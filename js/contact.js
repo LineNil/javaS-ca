@@ -50,6 +50,7 @@ function validateForm(event) {
     emailError.style.display = "block";
 }
 
+
 }
 
 form.addEventListener("submit", validateForm);

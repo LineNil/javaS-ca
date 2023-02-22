@@ -1,12 +1,12 @@
 const drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 const container = document.querySelector(".results");
 const errorResult = document.querySelector(".errorResult");
-const spinnerContainer = document.querySelector(".spinner");
+const loaderContainer = document.querySelector(".loader");
 
 async function fetchDrink(){
 
   try{
-    spinnerContainer.innerHTML = "Loading...";
+    loaderContainer.innerHTML = "Loading...";
 
     let params = new URLSearchParams(document.location.search);
     const id = params.get(`id`);
@@ -72,7 +72,7 @@ async function fetchDrink(){
     errorResult.innerHTML = `An error has occurred, sorry for the inconvenience ${error}`
   }
   finally{
-    spinnerContainer.innerHTML = "";
+    loaderContainer.innerHTML = "";
   }
 }
 

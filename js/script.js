@@ -3,22 +3,21 @@ const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=v";
 
 const resultsContainer = document.querySelector(".results");
 const errorResult = document.querySelector(".errorResult");
-const spinnerContainer = document.querySelector(".spinner");
+const loaderContainer = document.querySelector(".loader");
 
 
 async function makeApiCall() {
   try{
      
-    spinnerContainer.innerHTML = "Loading...";
+    loaderContainer.innerHTML = "Loading...";
   
     const response = await fetch(url);
-
     const results = await response.json();
-
     const  drinksList = results.drinks;
     
 
   drinksList.forEach((drink) => {
+
     const newDiv = document.createElement("div");
     newDiv.classList.add("card");
 
@@ -52,7 +51,7 @@ async function makeApiCall() {
   }   
   finally {
   
-    spinnerContainer.innerHTML = "";
+    loaderContainer.innerHTML = "";
   }
 }
 
