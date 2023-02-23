@@ -1,5 +1,6 @@
-newPageTitle = 'Details';
-document.title = newPageTitle;
+
+
+
 
 const drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 const container = document.querySelector(".results");
@@ -19,6 +20,9 @@ async function fetchDrink(){
     const response = await fetch(`${drinkUrl}${id}`);
   
     const json = await response.json();
+
+    newPageTitle = `Drinks | ${json.drinks[0].strDrink}`;
+    document.title = newPageTitle; 
   
 
     const drink = json.drinks[0];
