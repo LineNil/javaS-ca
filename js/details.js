@@ -1,3 +1,6 @@
+newPageTitle = 'Details';
+document.title = newPageTitle;
+
 const drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 const container = document.querySelector(".results");
 const errorResult = document.querySelector(".errorResult");

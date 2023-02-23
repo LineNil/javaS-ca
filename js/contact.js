@@ -1,3 +1,6 @@
+newPageTitle = 'Contact';
+document.title = newPageTitle;
+
 const form = document.querySelector("#contactForm");
 
 const firstName = document.querySelector("#firstName");
